@@ -1,12 +1,12 @@
-#ARG     REGISTRY=registry.example.com
+#ARG     REGISTRY=registry.example.com/
 ARG     REGISTRY=
 ARG     DISTRO=ubuntu
 ARG     RELEASE=focal
 FROM    ${REGISTRY}${DISTRO}:${RELEASE}
 
-ARG     REGION=ap-southeast-2
-ARG     MIRROR=http://${REGION}.ec2.archive.ubuntu.com
-#ARG     MIRROR=http://azure.archive.ubuntu.com
+#ARG     REGION=ap-southeast-2
+#ARG     MIRROR=http://${REGION}.ec2.archive.ubuntu.com
+ARG     MIRROR=http://azure.archive.ubuntu.com
 #ARG     MIRROR=http://mirror.internode.on.net/pub/ubuntu
 
 ENV     DEBIAN_FRONTEND=noninteractive
