@@ -4,15 +4,15 @@ ARG     DISTRO=ubuntu
 ARG     RELEASE=focal
 FROM    ${REGISTRY}${DISTRO}:${RELEASE}
 
-#ARG     REGION=ap-southeast-2
-#ARG     MIRROR=http://${REGION}.ec2.archive.ubuntu.com
-ARG     MIRROR=http://azure.archive.ubuntu.com
-#ARG     MIRROR=http://mirror.internode.on.net/pub/ubuntu
+ARG     REGION=ap-southeast-2
+ARG     MIRROR=http://${REGION}.ec2.archive.ubuntu.com
+# ARG     MIRROR=http://azure.archive.ubuntu.com
+# ARG     MIRROR=http://mirror.internode.on.net/pub/ubuntu
 
 ENV     DEBIAN_FRONTEND=noninteractive
 # RELEASE must be redeclared, because it's used before FROM
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG     RELEASE=focal
+ARG     RELEASE
 ENV     PKGS="\
 bind9-host \
 byobu \
@@ -32,7 +32,6 @@ RUN     sed -ri \
         apt update && \
         apt install -y --no-install-recommends ${PKGS} && \
         apt upgrade -y --autoremove --purge && \
-        rm -rf /var/lib/apt/lists/* && \
-        rm -fv /etc/ssh/ssh_host_*key*
+        rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/bash"]
