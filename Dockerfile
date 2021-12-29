@@ -13,7 +13,7 @@ ENV     DEBIAN_FRONTEND=noninteractive
 # RELEASE must be redeclared, because it's used before FROM
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG     RELEASE
-ENV     PKGS="\
+ARG     PKGS="\
 bind9-host \
 byobu \
 curl \
