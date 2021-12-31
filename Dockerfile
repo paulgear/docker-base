@@ -11,7 +11,7 @@ ARG     MIRROR=http://${REGION}.ec2.archive.ubuntu.com
 ENV     DEBIAN_FRONTEND=noninteractive
 # RELEASE must be redeclared, because it's used before FROM
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG     RELEASE=focal
+ARG     RELEASE
 ARG     PKGS="\
 bind9-host \
 byobu \
