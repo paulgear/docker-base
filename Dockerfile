@@ -1,5 +1,4 @@
-#ARG     REGISTRY=registry.example.com/
-ARG     REGISTRY=
+ARG     REGISTRY=""
 ARG     DISTRO=ubuntu
 ARG     RELEASE=focal
 FROM    ${REGISTRY}${DISTRO}:${RELEASE}
