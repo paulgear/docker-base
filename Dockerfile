@@ -17,6 +17,7 @@ bind9-host \
 byobu \
 curl \
 iproute2 \
+less \
 mtr-tiny \
 netcat-openbsd \
 rsync \
