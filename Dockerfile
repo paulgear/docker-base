@@ -1,6 +1,6 @@
 ARG     REGISTRY=""
 ARG     DISTRO=ubuntu
-ARG     RELEASE=jammy
+ARG     RELEASE=noble
 FROM    ${REGISTRY}${DISTRO}:${RELEASE}
 
 ARG     REGION=ap-southeast-2
