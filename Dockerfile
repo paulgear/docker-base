@@ -26,8 +26,13 @@ wget \
 
 RUN     sed -ri \
             -e "s!http://archive\.ubuntu\.com!${MIRROR}!" \
-            -e "1i deb ${MIRROR}/ubuntu/ ${RELEASE}-security main restricted universe multiverse\n" \
-            /etc/apt/sources.list && \
+            /etc/apt/sources.list.d/ubuntu.sources && \
+        echo "\
+Types: deb\n\
+URIs: ${MIRROR}/ubuntu/\n\
+Suites: ${RELEASE}-security\n\
+Components: main universe restricted multiverse\n\
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg\n" > /etc/apt/sources.list.d/mirror-security.sources && \
         apt update && \
         apt install -y --no-install-recommends ${PKGS} && \
         apt upgrade -y --autoremove --purge && \
